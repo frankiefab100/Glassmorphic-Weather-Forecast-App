@@ -9,7 +9,7 @@ function setLocation(e) {
 }
 function getCondition(location) {
   const key = "03a312df56c6ea172c35ee97622df898";
-  let api = `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${key}`;
+  let api = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${key}`;
 
   fetch(api)
     .then((weather) => {
