@@ -1,2 +1,3 @@
 # Weather-Forecast-App
-A Weather Forecast Application
+
+A Weather Forecasting Application that display current time, weather condition, temperature range and atmosphere of a location/city.
