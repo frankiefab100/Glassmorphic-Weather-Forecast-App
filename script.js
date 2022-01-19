@@ -1,11 +1,10 @@
 const searchbar = document.querySelector(".search");
-searchbar.addEventListener("keypress", setLocation);
+const submitBtn = document.querySelector(".search-button");
+submitBtn.addEventListener("click", setLocation);
 
-function setLocation(e) {
-  if (e.keyCode === 13) {
-    getCondition(searchbar.value);
-    document.querySelector("main").style.display = "block";
-  }
+function setLocation() {
+  getCondition(searchbar.value);
+  document.querySelector("main").style.display = "block";
 }
 async function getCondition(location) {
   const key = "03a312df56c6ea172c35ee97622df898";
