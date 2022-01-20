@@ -6,18 +6,20 @@ function setLocation() {
   getCondition(searchbar.value);
   document.querySelector("main").style.display = "block";
 }
+
+const dotenv = require("dotenv").config();
 async function getCondition(location) {
-  const key = "08c7b9b80b1c4623222af5d360bac74a";
+  const key = process.env.WEATHER_API_KEY;
   let api = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${key}`;
 
   fetch(api)
     .then((weather) => {
       return weather.json();
     })
-    .then(displayCondition);
-  // .catch((err) => {
-  //   alert("wrong city!");
-  // });
+    .then(displayCondition)
+    .catch((err) => {
+      alert("wrong city!");
+    });
 }
 
 function displayCondition(weather) {
