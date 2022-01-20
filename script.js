@@ -7,7 +7,7 @@ function setLocation() {
   document.querySelector("main").style.display = "block";
 }
 async function getCondition(location) {
-  const key = "03a312df56c6ea172c35ee97622df898";
+  const key = "08c7b9b80b1c4623222af5d360bac74a";
   let api = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${key}`;
 
   fetch(api)
