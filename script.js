@@ -14,10 +14,10 @@ async function getCondition(location) {
     .then((weather) => {
       return weather.json();
     })
-    .then(displayCondition)
-    .catch((err) => {
-     alert("Please a city correctly!");
-   });
+    .then(displayCondition);
+  // .catch((err) => {
+  //   alert("wrong city!");
+  // });
 }
 
 function displayCondition(weather) {
