@@ -7,10 +7,9 @@ function setLocation() {
   document.querySelector("main").style.display = "block";
 }
 
-const dotenv = require("dotenv").config();
 async function getCondition(location) {
-  const key = process.env.WEATHER_API_KEY;
-  let api = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${key}`;
+  const key = "03a312df56c6ea172c35ee97622df898";
+  let api = `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${key}`;
 
   fetch(api)
     .then((weather) => {
@@ -18,19 +17,23 @@ async function getCondition(location) {
     })
     .then(displayCondition)
     .catch((err) => {
-      alert("wrong city!");
+      alert("Please enter a correct city or country!");
     });
 }
 
 function displayCondition(weather) {
   let presentDay = new Date();
+  const iconLink = "http://openweathermap.org/img/w/";
 
-  const weatherResult = `
+  let weatherResult = `
     <section class="location-date">
       <div class="city">${weather.name}, ${weather.sys.country}</div>
       <div class="date">${getDate(presentDay)}</div>
     </section>
     <div class="temp-details">
+      <div class="temp-icon">
+      <img src="${iconLink}${weather.weather[0].icon}.png" />
+      </div>
       <div class="temperature">
       ${Math.round(weather.main.temp)}<span class="temp-symbol">&deg;c</span>
       </div>
@@ -47,6 +50,7 @@ function displayCondition(weather) {
       </div>
     </div>
   `;
+
   document.querySelector("main").innerHTML += weatherResult;
 }
 
