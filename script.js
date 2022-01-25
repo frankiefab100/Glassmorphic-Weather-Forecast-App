@@ -9,7 +9,7 @@ function setLocation() {
 
 async function getCondition(location) {
   const key = "03a312df56c6ea172c35ee97622df898";
-  let api = `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${key}`;
+  let api = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${key}`;
 
   fetch(api)
     .then((weather) => {
@@ -23,7 +23,7 @@ async function getCondition(location) {
 
 function displayCondition(weather) {
   let presentDay = new Date();
-  const iconLink = "http://openweathermap.org/img/w/";
+  const iconLink = "https://openweathermap.org/img/w/";
 
   let weatherResult = `
     <section class="location-date">
