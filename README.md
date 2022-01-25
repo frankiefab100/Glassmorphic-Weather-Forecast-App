@@ -1,7 +1,7 @@
 # Weather-Forecast-App
 
 A Weather Forecasting Application that display current time, weather condition, temperature range and atmosphere of a location/city.
+
 [Live URL](https://glassmorphic-weather-app.netlify.app/)
 
-![Glassmorphic_Weather_Forecasting_App2](https://user-images.githubusercontent.com/46662771/150028278-c1d9e5fc-9a6d-43d2-b03b-56defc58afea.png)
-
+![weather-appNEW](https://user-images.githubusercontent.com/46662771/151016863-5634bac7-3118-40a0-b3a5-9b970b81c2b3.JPG)
