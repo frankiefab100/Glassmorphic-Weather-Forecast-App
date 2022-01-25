@@ -8,8 +8,8 @@ function setLocation() {
 }
 
 async function getCondition(location) {
-  const key = "03a312df56c6ea172c35ee97622df898";
-  let api = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${key}`;
+  // let api = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${key}`;
+  let api = `../.netlify/functions/fetch?query=${searchbar.value}`;
 
   fetch(api)
     .then((weather) => {
