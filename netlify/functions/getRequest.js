@@ -4,7 +4,7 @@ exports.handler = async (event, context) => {
   try {
     const { query } = event.queryStringParameters;
     let response = await fetch(
-      `${process.event.API_URL}=${process.event.WEATHER_API_KEY}&q=${query}`
+      `${process.env.API_URL}=${process.env.WEATHER_API_KEY}&q=${query}`
     );
     let weatherData = response.weatherData;
     return {
