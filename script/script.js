@@ -2,15 +2,13 @@ const searchbar = document.querySelector(".search");
 const submitBtn = document.querySelector(".search-button");
 const parentContainer = document.querySelector(".container");
 
-submitBtn.addEventListener("click", setLocation);
-
-function setLocation() {
+submitBtn.addEventListener("click", () => {
   getCondition(searchbar.value);
   searchbar.value = "";
-}
+});
 
 async function getCondition(location) {
-  let api = `/.netlify/functions/getrequest?location=${location}`;
+  let api = `/.netlify/functions/fetch?query=${location}`;
 
   fetch(api)
     .then((weather) => {
