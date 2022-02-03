@@ -2,7 +2,7 @@ const searchbar = document.querySelector(".search");
 const submitBtn = document.querySelector(".search-button");
 const parentContainer = document.querySelector(".container");
 
-submitBtn.addEventListener("click", (e) => {
+submitBtn.addEventListener("click", () => {
   getCondition(searchbar.value);
   searchbar.value = "";
 });
