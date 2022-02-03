@@ -76,7 +76,7 @@ main {
   margin-top: 20px;
   min-width: 310px;
   text-align: center;
-  display: none;
+  display: block;
 }
 
 .city {
