@@ -2,11 +2,11 @@ const fetch = require("axios");
 
 exports.handler = async (event, context) => {
   try {
-    const { query } = event.queryStringParameters;
+    const { location } = event.queryStringParameters;
     let response = await fetch(
-      `${process.event.API_URL}=${process.event.WEATHER_API_KEY}&q=${query}`
+      `${process.env.API_URL}q=${location}&units=metric&appid=${process.env.WEATHER_API_KEY}`
     );
-    let weatherData = response.weatherData;
+    let weatherData = response.data;
     return {
       statusCode: 200,
       body: JSON.stringify({

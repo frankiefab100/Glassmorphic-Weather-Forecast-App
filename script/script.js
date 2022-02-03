@@ -1,18 +1,20 @@
 const searchbar = document.querySelector(".search");
 const submitBtn = document.querySelector(".search-button");
+const parentContainer = document.querySelector(".container");
+
 submitBtn.addEventListener("click", setLocation);
 
 function setLocation() {
   getCondition(searchbar.value);
-  document.querySelector("main").style.display = "block";
+  searchbar.value = "";
 }
 
 async function getCondition(location) {
-  // let api = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${key}`;
-  let api = `../.netlify/functions/fetch?query=${searchbar.value}`;
+  let api = `/.netlify/functions/getrequest?location=${location}`;
 
   fetch(api)
     .then((weather) => {
+      console.log(weather.json());
       return weather.json();
     })
     .then(displayCondition)
@@ -26,6 +28,7 @@ function displayCondition(weather) {
   const iconLink = "https://openweathermap.org/img/w/";
 
   let weatherResult = `
+  <main class="weather-result">
     <section class="location-date">
       <div class="city">${weather.name}, ${weather.sys.country}</div>
       <div class="date">${getDate(presentDay)}</div>
@@ -44,14 +47,23 @@ function displayCondition(weather) {
           <p>Low</p>
           <p>High</p>
         </div>
+      
         ${Math.round(weather.main.temp_min)}&deg;c / ${Math.round(
     weather.main.temp_max
   )}&deg;c
       </div>
     </div>
+    </main>
   `;
 
-  document.querySelector("main").innerHTML += weatherResult;
+  const container = document.querySelector(".weather-result");
+
+  if (container) {
+    container.remove();
+    parentContainer.insertAdjacentHTML("beforeend", weatherResult);
+  } else {
+    parentContainer.insertAdjacentHTML("beforeend", weatherResult);
+  }
 }
 
 function getDate(now) {
