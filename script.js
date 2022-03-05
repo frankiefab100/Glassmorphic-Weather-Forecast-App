@@ -2,9 +2,18 @@ const searchbar = document.querySelector(".search");
 const submitBtn = document.querySelector(".search-button");
 const parentContainer = document.querySelector(".container");
 
-submitBtn.addEventListener("click", () => {
+// UX for Mouse Users
+submitBtn.addEventListener("click", (e) => {
   getCondition(searchbar.value);
   searchbar.value = "";
+});
+
+// UX for Keyboard Users
+window.addEventListener("keydown", (e) => {
+  if (e.keyCode === 13) {
+    getCondition(searchbar.value);
+    searchbar.value = "";
+  }
 });
 
 async function getCondition(location) {
